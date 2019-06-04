@@ -1,0 +1,21 @@
+% A flowchart of a TeX workflow
+% Author: Stefan Kottwitz
+% https://www.packtpub.com/hardware-and-creative/latex-cookbook
+\documentclass[border=10pt]{standalone} 
+%%%<
+\usepackage{verbatim}
+%%%>
+\begin{comment}
+:Title: A flowchart of a TeX workflow
+:Tags: Diagrams;Flowcharts;Smartdiagram;Cookbook
+:Author: Stefan Kottwitz
+:Slug: smart-flowchart
+
+A flowchart showing a common TeX workflow, using the
+smartdiagram package.
+\end{comment}
+\usepackage{smartdiagram}
+\begin{document}
+\smartdiagram[flow diagram:horizontal]{Edit,
+  \LaTeX, Bib\TeX/ biber, make\-index, \LaTeX}
+\end{document}

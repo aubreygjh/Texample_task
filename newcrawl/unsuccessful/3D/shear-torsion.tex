@@ -1,0 +1,94 @@
+% Shear torsion
+% Author: Marco Castelli
+\documentclass[border=10pt]{standalone}
+%%%<
+\usepackage{verbatim}
+%%%>
+\begin{comment}
+:Title: Shear torsion
+:Tags: 3D;Mechanics;Physics
+:Author: Marco Castelli
+:Slug: shear-torsion
+Structural analysis of three different torsional problem,
+created with TikZ using the 3Dstructuralanalysis package.
+\end{comment}
+\usepackage{3Dstructuralanalysis}
+\begin{document}
+\begin{tikzpicture}[coords]
+	% Points
+	\dpoint{a}{0}{0}{0};
+	\dpoint{b}{0}{3.8}{0};
+	\dpoint{c}{0}{0}{0.3};
+	\dpoint{d}{0}{0.6}{0.3};
+	\dpoint{e}{0}{-0.8}{0.3};
+	% Torsiona supports and beam
+	\dsupport{3}{a}[0][0][1];
+	\dhinge{3}{a}[0];
+	\dsupport{3}{b}[0][0][1];
+	\dhinge{3}{b}[0];
+	\dbeam{1}{a}{b};
+	% Loads acting on the edge
+	\dload{4}{c}[90][90][1][0.1];
+	\dload{4}{c}[90][90][-1][-0.3];
+	% Notations
+	\dnotation{1}{d}{$M_t$}[above left];
+	\dnotation{1}{e}{$M_t$}[above left];
+	\dnotation{2}{a}{}[below right];
+\end{tikzpicture}
+%
+\begin{tikzpicture}[coords]
+	% Points
+	\dpoint{a}{0}{0}{0};
+	\dpoint{b}{0}{3.8}{0};
+	\dpoint{c}{0}{0.5}{0};
+	\dpoint{d}{0}{0}{0.3};
+	\dpoint{e}{0}{0.5}{0.3};
+	\dpoint{f}{0}{-0.8}{0.3};
+	\dpoint{g}{0}{1.4}{0.3};
+	% Torsiona supports and beam
+	\dsupport{3}{a}[0][0][1];
+	\dhinge{3}{a}[0];
+	\dsupport{3}{b}[0][0][1];
+	\dhinge{3}{b}[0];
+	\dbeam{1}{a}{b};
+	% Load applied on the support and one load
+	% at a 't' distance from the edge
+	\dload{4}{e}[90][90][1][0];
+	\dload{4}{d}[90][90][-1][-0.3];
+	% Notations and dimensioning
+	\dnotation{1}{f}{$M_t$}[above left];
+	\dnotation{1}{g}{$M_t$}[above left];
+	\dnotation{2}{c}{}[below right];
+	\ddimensioning{yz}{a}{c}{0.8}[$t$];
+\end{tikzpicture}
+%
+\begin{tikzpicture}[coords]
+	% Points
+	\dpoint{a}{0}{0}{0};
+	\dpoint{b}{0}{3.8}{0};
+	\dpoint{c}{0}{0}{0.3};
+	\dpoint{d}{0}{-0.8}{0.3};
+	\dpoint{e}{0}{0}{0.3};
+	\dpoint{f}{0}{0.8}{0.3};
+	\dpoint{g}{0}{1.6}{0.3};
+	\dpoint{h}{0}{2.4}{0.3};
+	\dpoint{i}{0}{3.2}{0.3};
+	% Torsiona supports and beam
+	\dsupport{3}{a}[0][0][1];
+	\dhinge{3}{a}[0];
+	\dsupport{3}{b}[0][0][1];
+	\dhinge{3}{b}[0];
+	\dbeam{1}{a}{b};
+	% Load applied on the support and one
+	% distibuited load along the whole beam
+	\dload{4}{c}[90][90][-1][-0.3];
+	\dload{4}{e}[90][90][0.7][0];
+	\dload{4}{f}[90][90][0.7][0];
+	\dload{4}{g}[90][90][0.7][0];
+	\dload{4}{h}[90][90][0.7][0];
+	\dload{4}{i}[90][90][0.7][0];
+	% Notations	
+	\dnotation{1}{h}{$m_t$}[above left];
+	\dnotation{1}{d}{$M_t$}[above left];
+\end{tikzpicture}
+\end{document}
